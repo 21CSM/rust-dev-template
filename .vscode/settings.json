@@ -1,0 +1,15 @@
+{
+    "files.watcherExclude": {
+        "**/.direnv/**": true,
+        "**/result/**": true,
+        "**/result-*/**": true
+    },
+    "editor.formatOnSave": true,
+    "[rust]": {
+        "editor.defaultFormatter": "statiolake.vscode-rustfmt"
+    },
+    "rust-analyzer.linkedProjects": [
+        "./Cargo.toml"
+    ],
+    "rust-analyzer.cargo.features": "all"
+}

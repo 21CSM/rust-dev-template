@@ -1,0 +1,30 @@
+# Rust
+/target/
+debug/
+**/*.rs.bk
+
+# Cargo
+.cargo/
+
+# Coverage reports (from cargo-tarpaulin)
+coverage/
+cobertura.xml
+tarpaulin-report.html
+
+# Nix
+result
+result-*
+
+# direnv
+.direnv/
+
+# Pre-commit
+.pre-commit-config.yaml
+
+# macOS
+.DS_Store
+
+# Misc
+*.log
+*.bak
+*.tmp
