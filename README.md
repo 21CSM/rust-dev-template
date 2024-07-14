@@ -184,5 +184,16 @@ Contributions are welcome. Please feel free to submit a Pull Request.
 If you encounter any issues with direnv or the Nix environment:
 
 1. Ensure that direnv and nix-direnv are correctly installed and configured.
+
 2. Try running `direnv reload` in the project directory.
+
 3. Check the `.envrc` and `flake.nix` files for any potential issues.
+
+### For VS Code-related issues:
+
+1. Ensure all recommended extensions are installed.
+
+2. Check that the .vscode/settings.json and .vscode/launch.json files are present and
+correctly configured.
+
+3. Try reloading the VS Code window (Ctrl+Shift+P or Cmd+Shift+P, then type "Reload Window").
