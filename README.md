@@ -2,13 +2,15 @@
 
 # Rust Dev Template
 
-This is a template for Rust projects using Nix flakes and direnv. It provides a reproducible and automatically activating development environment for Rust projects.
+This is a template for Rust projects using Nix flakes and direnv. It provides a reproducible and
+automatically activating development environment for Rust projects.
 
 ## Prerequisites
 
 - [Nix](https://nixos.org/download.html) with flakes enabled
 - [direnv](https://direnv.net/)
 - [nix-direnv](https://github.com/nix-community/nix-direnv)
+- [Visual Studio Code](https://code.visualstudio.com/) (recommended)
 
 ## Getting Started
 
@@ -33,6 +35,65 @@ direnv allow
 
 This will automatically set up and enter the Rust development environment defined in the flake.
 
+## VS Code Setup
+
+This project includes configurations for Visual Studio Code to enhance your development experience.
+
+### Recommended Extensions
+
+The following extensions are recommended for this project:
+
+- [rust-lang.rust-analyzer][rust-analyzer]
+- [jnoortheen.nix-ide][nix-ide]
+- [mkhl.direnv][direnv]
+- [vadimcn.vscode-lldb][vscode-lldb]
+- [serayuzgur.crates][crates]
+- [tamasfe.even-better-toml][even-better-toml]
+- [usernamehw.errorlens][errorlens]
+- [eamodio.gitlens][gitlens]
+- [streetsidesoftware.code-spell-checker][code-spell-checker]
+
+You can install these extensions manually,
+[through Nix][nixos-wiki-vscode], or VS Code will prompt you to
+install them when you open the project.
+
+[rust-analyzer]: https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
+[nix-ide]: https://marketplace.visualstudio.com/items?itemName=jnoortheen.nix-ide
+[direnv]: https://marketplace.visualstudio.com/items?itemName=mkhl.direnv
+[vscode-lldb]: https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb
+[crates]: https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates
+[even-better-toml]: https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml
+[errorlens]: https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
+[gitlens]: https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
+[code-spell-checker]: https://marketplace.visualstudio.com/items?itemName=streetsidesoftware.code-spell-checker
+[nixos-wiki-vscode]: https://nixos.wiki/wiki/Visual_Studio_Code
+
+## Debugging
+
+### VS Code
+
+This project includes a ```launch.json``` file for debugging Rust code in VS Code.
+To start debugging:
+
+1. Open the Debug view in VS Code (Ctrl+Shift+D or Cmd+Shift+D on macOS).
+
+2. Select either "Debug executable" or "Debug unit tests" from the dropdown at the top of
+the Debug view.
+
+3. Set breakpoints in your code as needed.
+
+4. Press F5 or click the green play button to start debugging.
+
+### Terminal
+
+You can use the ```debug``` command provided by the flake:
+
+```bash
+nix run .#debug
+```
+
+This will start LLDB and attach it to your project's binary.
+
 ## Customizing the Template
 
 1. Update the `Cargo.toml` file:
@@ -41,16 +102,20 @@ This will automatically set up and enter the Rust development environment define
 
 2. Modify the `flake.nix` file:
 - Update the `description` at the top of the file.
-- If you need to add or change Nix dependencies, modify the `buildInputs` in the `devShells.default` section.
-- If you've added any Rust dependencies that require system libraries, you may need to add them to the `buildInputs` of the `packages.default` definition.
+- If you need to add or change Nix dependencies, modify the `buildInputs` in the
+`devShells.default`section.
+- If you've added any Rust dependencies that require system libraries, you may need to add them to
+the `buildInputs` of the `packages.default` definition.
 
 3. Add your Rust code to the `src` directory.
 
-4. If needed, adjust the `.envrc` file to add any project-specific environment variables or settings.
+4. If needed, adjust the `.envrc` file to add any project-specific environment variables
+or settings.
 
 5. Update this README.md file to describe your project.
 
-6. (Optional) Modify the GitHub Actions workflow in `.github/workflows/` if you need to customize the CI/CD process.
+6. (Optional) Modify the GitHub Actions workflow in `.github/workflows/` if you need to
+customize the CI/CD process.
 
 Remember to commit these changes:
 
@@ -61,7 +126,9 @@ git commit -m "Customize project template"
 
 ## Automatic Environment Activation
 
-Once direnv is allowed, it will automatically activate the Nix-defined development environment whenever you enter the project directory. You'll see a message indicating that the environment has been loaded.
+Once direnv is allowed, it will automatically activate the Nix-defined development environment
+whenever you enter the project directory. You'll see a message indicating that the environment
+has been loaded.
 
 ## Available Commands
 
@@ -92,7 +159,8 @@ Additionally, this template provides the following Nix commands:
 
 ## CI/CD
 
-This template includes a GitHub Actions workflow for CI/CD. It will automatically build, test, and lint your project on each push and pull request.
+This template includes a GitHub Actions workflow for CI/CD. It will automatically build, test, and
+lint your project on each push and pull request.
 
 ## Creating Releases
 
