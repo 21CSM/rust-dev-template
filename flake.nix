@@ -31,13 +31,13 @@
           "rustfmt"
         ];
 
-        cargoTools = with pkgs; [
-          cargo-watch
-          cargo-audit
-          cargo-tarpaulin
-          cargo-outdated
-          cargo-expand
-          cargo-update
+        cargoTools = [
+          pkgs.cargo-watch
+          pkgs.cargo-audit
+          pkgs.cargo-tarpaulin
+          pkgs.cargo-outdated
+          pkgs.cargo-expand
+          pkgs.cargo-update
         ];
 
         pre-commit-check = pre-commit-hooks.lib.${system}.run {
@@ -59,14 +59,15 @@
         };
 
       in
-      with pkgs; {
-        devShells.default = mkShell {
+      {
+        devShells.default = pkgs.mkShell {
           buildInputs = [
             rustToolchain
-            rust-analyzer
-            nixpkgs-fmt
-            pre-commit
-          ] ++ cargoTools;
+            pkgs.rust-analyzer
+            pkgs.nixpkgs-fmt
+            pkgs.pre-commit
+          ] ++ cargoTools
+          ++ pkgs.lib.optional (pkgs ? lldb) pkgs.lldb;
 
           shellHook = ''
             echo "Rust development environment"
@@ -83,7 +84,7 @@
           pre-commit-check = pre-commit-check;
         };
 
-        formatter = nixpkgs-fmt;
+        formatter = pkgs.nixpkgs-fmt;
 
         packages = {
           default = pkgs.rustPlatform.buildRustPackage (commonArgs // {
@@ -106,6 +107,27 @@
             drv = pkgs.writeShellScriptBin "run" ''
               echo "Running in release mode..."
               ${rustToolchain}/bin/cargo run --release
+            '';
+          };
+
+          debug = flake-utils.lib.mkApp {
+            drv = pkgs.writeShellScriptBin "debug" ''
+              echo "Building in debug mode..."
+              ${rustToolchain}/bin/cargo build
+
+              echo "Determining binary name and path..."
+              binary_name=$(${rustToolchain}/bin/cargo metadata --no-deps --format-version 1 \
+                | ${pkgs.jq}/bin/jq -r \
+                '.packages[0].targets[] | select(.kind[] | contains("bin")) | .name')
+              binary_path="target/debug/$binary_name"
+
+              if [ ! -f "$binary_path" ]; then
+                echo "Error: Binary not found at $binary_path"
+                exit 1
+              fi
+
+              echo "Starting rust-lldb for $binary_name..."
+              ${rustToolchain}/bin/rust-lldb "$binary_path"
             '';
           };
 
