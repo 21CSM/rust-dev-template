@@ -14,20 +14,24 @@ automatically activating development environment for Rust projects.
 
 ## Getting Started
 
-1. Use this template to create a new repository.
-
-2. Clone your new repository:
-
+1. Use this template to create a new repository. There are a few options here:
+- You can clone the repository:
 ```bash
 git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
 ```
+- Or, use a flake template
+```bash
+nix flake init -t github:21CSM/rust-dev-template
+```
 
-3. Update the project name:
+- [Or, use the GitHub UI](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template)
+
+2. Update the project name:
 - In `Cargo.toml`, change the `name` field under `[package]` to your project name.
 - In `flake.nix`, update the `pname` in the `packages.default` definition to your project name.
 
-4. Allow direnv for this project:
+3. Allow direnv for this project:
 
 ```bash
 direnv allow
