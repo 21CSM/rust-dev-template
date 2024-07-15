@@ -15,11 +15,13 @@ automatically activating development environment for Rust projects.
 ## Getting Started
 
 1. Use this template to create a new repository. There are a few options here:
-- You can clone the repository:
+
+- You can fork this repository, then clone the your new repository:
 ```bash
 git clone https://github.com/yourusername/your-repo-name.git
 cd your-repo-name
 ```
+
 - Or, use a flake template
 ```bash
 nix flake init -t github:21CSM/rust-dev-template
@@ -148,6 +150,7 @@ Additionally, this template provides the following Nix commands:
 
 - `nix run .#build`: Build the project in release mode
 - `nix run .#run`: Run the project in release mode
+- `nix run .#debug`: Debug the project with LLDB
 - `nix run .#test`: Run tests
 - `nix run .#coverage`: Generate code coverage report
 - `nix run .#lint`: Run the linter
@@ -160,6 +163,7 @@ Additionally, this template provides the following Nix commands:
 2. Modify the `flake.nix` file if you need to add or change dependencies.
 3. Add your Rust code to the `src` directory.
 4. If needed, adjust the `.envrc` file to add any project-specific environment variables or settings.
+5. Change the workflows in .github to meet your CI/CD needs.
 
 ## CI/CD
 
