@@ -157,14 +157,6 @@ Additionally, this template provides the following Nix commands:
 - `nix run .#format`: Format both Rust and Nix files
 - `nix run .#clean`: Clean up build artifacts
 
-## Customizing the Template
-
-1. Update the `Cargo.toml` file with your project details.
-2. Modify the `flake.nix` file if you need to add or change dependencies.
-3. Add your Rust code to the `src` directory.
-4. If needed, adjust the `.envrc` file to add any project-specific environment variables or settings.
-5. Change the workflows in .github to meet your CI/CD needs.
-
 ## CI/CD
 
 This template includes a GitHub Actions workflow for CI/CD. It will automatically build, test, and
