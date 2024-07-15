@@ -15,6 +15,12 @@
   };
 
   outputs = { self, nixpkgs, fenix, flake-utils, pre-commit-hooks, ... }:
+    {
+      templates.default = {
+        path = ./.;
+        description = "Dev environment for Rust based on Nix flakes";
+      };
+    } //
     flake-utils.lib.eachDefaultSystem (system:
       let
         overlays = [ fenix.overlays.default ];
