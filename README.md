@@ -53,7 +53,7 @@ The following extensions are recommended for this project:
 - [jnoortheen.nix-ide][nix-ide]
 - [mkhl.direnv][direnv]
 - [vadimcn.vscode-lldb][vscode-lldb]
-- [serayuzgur.crates][crates]
+- [fill-labs.dependi][dependi]
 - [tamasfe.even-better-toml][even-better-toml]
 - [usernamehw.errorlens][errorlens]
 - [eamodio.gitlens][gitlens]
@@ -67,7 +67,7 @@ install them when you open the project.
 [nix-ide]: https://marketplace.visualstudio.com/items?itemName=jnoortheen.nix-ide
 [direnv]: https://marketplace.visualstudio.com/items?itemName=mkhl.direnv
 [vscode-lldb]: https://marketplace.visualstudio.com/items?itemName=vadimcn.vscode-lldb
-[crates]: https://marketplace.visualstudio.com/items?itemName=serayuzgur.crates
+[dependi]: https://marketplace.visualstudio.com/items?itemName=fill-labs.dependi
 [even-better-toml]: https://marketplace.visualstudio.com/items?itemName=tamasfe.even-better-toml
 [errorlens]: https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens
 [gitlens]: https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens
