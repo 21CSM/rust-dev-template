@@ -109,6 +109,12 @@
             '';
           };
 
+          check = flake-utils.lib.mkApp {
+            drv = pkgs.writeShellScriptBin "check" ''
+              ${rustToolchain}/bin/cargo check
+            '';
+          };
+
           run = flake-utils.lib.mkApp {
             drv = pkgs.writeShellScriptBin "run" ''
               echo "Running in release mode..."

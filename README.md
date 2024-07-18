@@ -149,6 +149,7 @@ With the environment activated, you can use the following commands:
 Additionally, this template provides the following Nix commands:
 
 - `nix run .#build`: Build the project in release mode
+- `nix run .#check`: Check the code to make sure it compiles
 - `nix run .#run`: Run the project in release mode
 - `nix run .#debug`: Debug the project with LLDB
 - `nix run .#test`: Run tests
