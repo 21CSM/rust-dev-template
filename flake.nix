@@ -73,7 +73,8 @@
             pkgs.nixpkgs-fmt
             pkgs.pre-commit
           ] ++ cargoTools
-          ++ pkgs.lib.optional (pkgs ? lldb) pkgs.lldb;
+          ++ pkgs.lib.optional (pkgs ? lldb) pkgs.lldb
+          ++ pkgs.lib.optional pkgs.stdenv.isDarwin pkgs.libiconv;
 
           shellHook = ''
             echo "Rust development environment"
