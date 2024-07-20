@@ -156,6 +156,7 @@ Additionally, this template provides the following Nix commands:
 - `nix run .#coverage`: Generate code coverage report
 - `nix run .#lint`: Run the linter
 - `nix run .#format`: Format both Rust and Nix files
+- `nix run .#update`: Updates dependencies as recorded in the local lock file
 - `nix run .#clean`: Clean up build artifacts
 
 ## CI/CD

@@ -168,6 +168,12 @@
             '';
           };
 
+          update = flake-utils.lib.mkApp {
+            drv = pkgs.writeShellScriptBin "update" ''
+              ${rustToolchain}/bin/cargo update $@
+            '';
+          };
+
           clean = flake-utils.lib.mkApp {
             drv = pkgs.writeShellScriptBin "clean" ''
               echo "Cleaning up build artifacts..."
