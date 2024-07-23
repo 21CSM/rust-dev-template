@@ -119,7 +119,7 @@
           run = flake-utils.lib.mkApp {
             drv = pkgs.writeShellScriptBin "run" ''
               echo "Running in release mode..."
-              ${rustToolchain}/bin/cargo run --release
+              ${rustToolchain}/bin/cargo run --release $@
             '';
           };
 
